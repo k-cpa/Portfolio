@@ -1,0 +1,28 @@
+@use "../abstract/mixin" as var;
+@use "../abstract/mixin";
+
+// FONT SETUP
+
+@font-face {
+    font-family: "Roboto";
+    src: url(../font/Roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Merriwheather";
+    src: url(../../font/Baloo_Bhai_2/BalooBhai2-VariableFont_wght.ttf);
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+body {
+    font-family: Roboto;
+    font-weight: 400;
+    background-color: #f2f2f0;
+}
+
+// HEADER
+
+header {
+    
+}

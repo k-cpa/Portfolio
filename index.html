@@ -7,11 +7,24 @@
     <link rel="stylesheet" href="assets/css/all.css">
     <!-- STYLE CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- script JS par section -->
     <script src="assets/js/home.js" defer></script>
+    <script src="assets/js/project.js" defer></script>
+    <script src="assets/js/story.js" defer></script>
     <title>Home</title>
 </head>
 <body>
-    <main id="home">
+    <header> <!--display none passage en block au scroll-->
+        <nav>
+            <!-- logo à insérer -->
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="story.html">Story</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="home">
         <!-- z-1 + w100-h100 -->
         <div class="line_container">
             <!-- insérer lines ici. GPT peut être pour pas s'embêter à former du SVG -->
@@ -36,9 +49,20 @@
                 </div>
             </div>
             <div class="folder_container">
-
             </div>
         </section>
-    </main>
+        <!-- section projet cards -->
+        <section id="project">
+            <article id="projectContainer" class="container">
+                <div id="cardsProject" class="card_project"></div>
+                <div id="cardsProject" class="card_project"></div>
+                <div id="cardsProject" class="card_project"></div>
+                <div id="cardsProject" class="card_project"></div>
+                <div id="cardsProject" class="card_project"></div>
+                <div id="cardsProject" class="card_project"></div>
+                <div id="cardsProject" class="card_project"></div>
+                <div id="cardsProject" class="card_project"></div>
+            </article>
+        </section>
 </body>
 </html>

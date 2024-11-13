@@ -1,5 +1,6 @@
-@use "general/setup";
-@use "pages/home";
-@use "pages/project";
-@use "pages/story";
+@use "general/reset";
+@use "general/main";
+@use "sections/home";
+@use "sections/project";
+@use "sections/story";
 @use "abstract/responsive";
