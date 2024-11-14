@@ -1,2 +1,310 @@
 @use "../abstract/variable" as var;
 @use "../abstract/mixin";
+
+.line_container {
+    background-color: var.$principalColor;
+    width: 100vw;
+    height: 100vh;
+    @include mixin.flex;
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var.$lightPrincipalColor;
+        opacity: .3;
+    }
+}
+
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+#homeContainer {
+    @include mixin.flex ($justify: space-between);
+    width: 1520px;
+    // height: 65%;
+    padding: 30px 0;
+    background-color: var.$bgColor;
+    border-radius: 20px;
+    z-index: 1;
+    box-shadow: 11px 14px 19px -5px rgba(0,0,0,0.26);
+    -webkit-box-shadow: 11px 14px 19px -5px rgba(0,0,0,0.26);
+    -moz-box-shadow: 11px 14px 19px -5px rgba(0,0,0,0.26);
+    will-change: transform;
+    transform-style: preserve-3d;
+    transition: .1s ease-out;
+    --x-rotation: 0deg;
+    --y-rotation: 0deg;
+    transform: rotateX(var(--x-rotation)) rotateY(var(--y-rotation));
+
+    &:hover {
+        transform: scale(1.05) rotateX(var(--x-rotation)) rotateY(var(--y-rotation));
+    }
+}
+
+
+    
+
+// Partie grid (gauche de card)
+.home_content_container {
+    @include mixin.flex (column, flex-start, flex-start);
+    width: 50%;
+    height: 95%;
+    text-align: center;
+
+    h2 {
+        font-size: 130px;
+    }
+
+    .title {
+        position: relative;
+        padding-left: 80px;
+    }
+
+    .cornerTitle {
+        position: absolute;
+        top: 15%;
+        left: 8%;
+
+    }
+
+    .home_grid {
+        display: grid;
+        grid-template-columns: 1fr 0.8fr 0.8fr;
+        grid-template-rows: 1fr 1.25fr;
+        gap: 2rem;
+        padding-left: 80px;
+        font-family: Roboto bold;
+
+        .project_link {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .story_link {
+            grid-column: 3;
+            grid-row: 2;
+            height: 100%;
+            @include mixin.flex($align: flex-end);
+        }
+    }
+}
+
+// Visuel des cards colorées 
+
+.project_block {
+    @include mixin.flex;
+    border: 2px solid var.$bgColor;
+    width: 240px;
+    height: 180px;
+    background-color: #F1C232;
+    border-radius: 20px;
+    position: relative;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+    color: black;
+    box-shadow: 8px 8px black;
+
+    &:hover {
+        transform: translate(5px, 5px);
+        box-shadow: 3px 3px black;
+        border-color: black;
+    }
+
+    &:active {
+        transform: translate(6px, 6px);
+        box-shadow: 2px 0px black;
+    }
+
+    h3 {
+        width: 80%;
+    }
+
+    .cornerCard {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.video {
+    @include mixin.flex;
+    grid-row: 2;
+    grid-column: 1/3;
+    border: 3px solid black;
+    border-radius: 20px;
+    background-color: black;
+    cursor: pointer;
+
+    h3 {
+        color: white;
+    }
+}
+
+.story_block {
+    @include mixin.flex;
+    position: relative;
+    border: 2px solid var.$bgColor;
+    border-radius: 20px;
+    background-color: var.$secondaryColor;
+    height: 45%;
+    width: 100%;
+    align-self: flex-end;
+    cursor: pointer;
+    color: black;
+    transition: .3s ease;
+    font-size: 1.3rem;
+    box-shadow: 8px 8px black;
+
+    &:hover {
+        transform: translate(4px, 4px);
+        box-shadow: 4px 4px black;
+        border-color: black;
+    }
+
+    &:active {
+        transform: translate(6px, 6px);
+        box-shadow: 2px 0px black;
+    }
+
+    .cornerCard {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+}
+
+
+// Partie FOLDER (droite de card)
+
+.folder_container {
+    @include mixin.flex;
+    width: 50%;
+    height: 100%;
+    position: relative;
+    z-index: 0;
+
+    .bg_folder {
+        position: absolute;
+        top: 50%;
+        left: 55%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+
+    .portrait_abs {
+        position: absolute;
+        top: 8%;
+        left: 4%;
+        z-index: 3;
+
+    }
+
+    .rings_abs {
+        position: absolute;
+        top: 1.4%;
+        left: 2.2%;
+        z-index: 2;
+        animation: circleMove 8s linear infinite;
+    }
+
+    .me {
+        position: absolute;
+        z-index: 2;
+        font-size: 3rem;
+        top: -50%;
+        font-family: Baloo;
+        letter-spacing: 3px;
+        padding-left: 20px;
+
+        h2 {
+            color: var.$bgColor;
+            margin-top: 30px;
+        }
+
+        h1 {
+            margin-top: -25px;
+        }
+
+        span:first-child {
+            font-size: 4rem;
+        }
+
+        span:last-child {
+            display: block;
+            margin-top: -25px;
+        }
+        
+    }
+
+    @keyframes circleMove {
+        0% {
+            transform: rotate(0deg);
+        }
+         100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    // SOCIAL LINKS 
+
+    .social_wrapper {
+        @include mixin.flex (column, space-between, center);
+        position: absolute;
+        height: 250px;
+        top: 50px;
+        left: 155px;
+        z-index: 10;
+
+        a {
+            @include mixin.flex;
+            background-color: var.$principalColor;
+            border-radius: 50%;
+            border: 2px solid var.$bgColor;
+            width: 4rem;
+            height: 4rem;
+            text-align: center;
+            z-index: 10;
+            box-shadow: 4px 4px black;
+            transition: .3s ease;
+
+            &:hover {
+                transform: translate(2px, 2px);
+                box-shadow: 2px 2px black;
+                border-color: black;
+            }
+
+            &:active {
+                transform: translate(4px, 4px);
+                box-shadow: 0px 0px black;
+            }
+
+        }
+
+        i {
+            font-size: 3rem;
+            color: var.$bgColor;
+        }
+    }
+}
+
+.chevronDown {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    opacity: .3;
+}

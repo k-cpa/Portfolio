@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- script JS par section -->
     <script src="assets/js/home.js" defer></script>
-    <script src="assets/js/project.js" defer></script>
-    <script src="assets/js/story.js" defer></script>
+    <!-- <script src="assets/js/project.js" defer></script>
+    <script src="assets/js/story.js" defer></script> -->
     <title>Home</title>
 </head>
 <body>
     <header> <!--display none passage en block au scroll-->
         <nav>
-            <!-- logo à insérer -->
+            <h1>Kev<span>i</span>n Campana</h1>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="project.html">Projects</a></li>
@@ -27,30 +27,81 @@
     <section id="home">
         <!-- z-1 + w100-h100 -->
         <div class="line_container">
-            <!-- insérer lines ici. GPT peut être pour pas s'embêter à former du SVG -->
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="none">
+                <!-- Fond de couleur #F6D778 -->
+                <rect width="100%" height="100%" fill="#F6D778" />
+                
+                <!-- Groupement des lignes diagonales jaunes -->
+                <!-- rotate -65 à confirmer c'est peut être trop incliné -->
+               <g id="wavesGroup" fill="none" stroke="#F7BD60" transform="rotate(-65 100 100)" stroke-width="20">
+                  <!-- Ligne 1 -->
+                  <path class="wave1" d="M-50,0 Q30,20 80,0 T150,0 T230,0" />
+                  <!-- Ligne 2 -->
+                  <path class="wave2" d="M-50,40 Q30,30 80,40 T150,40 T230,40" />
+                  <!-- Ligne 3 -->
+                  <path class="wave3" d="M-50,80 Q30,70 80,80 T150,80 T230,80" />
+                  <!-- Ligne 4 -->
+                  <path class="wave4" d="M-50,120 Q30,100 80,120 T150,120 T230,120" />
+                  <!-- Ligne 5 -->
+                  <path class="wave5" d="M-50,160 Q30,140 80,160 T150,160 T230,160" />
+                  <!-- Ligne 6 -->
+                  <path class="wave6" d="M-50,200 Q30,180 80,200 T150,200 T230,200" />
+                  <!-- Ligne 7 -->
+                  <path class="wave7" d="M-50,240 Q30,220 80,240 T150,240 T230,240" />
+                  <!-- Ligne 8 -->
+                  <path class="wave8" d="M-50,280 Q30,260 80,280 T150,280 T230,280" />
+                </g>
+              </svg>
+            <section id="homeContainer" class="container card3D">
+                <div class="home_content_container">
+                    <div class="title">
+                        <img class="cornerTitle" src="assets/img/cornerTitle.svg" alt="forme géométrique formant un angle droit pour accompagner le titre">
+                        <h2>Portfolio</h2>
+                    </div>
+                    <div class="home_grid">
+                        <a class="project_link" href="">
+                            <div class="project_block">
+                                    <img class="cornerCard" src="assets/img/cornerCard.svg" alt="forme géométrique formant un angle droit pour accompagner le titre">
+                                    <h3>Follow me on my journey</h3>
+                            </div>
+                        </a>
+                            <div class="video">
+                                <!-- insérer iframe vidéo -->
+                                <h3>< VIDEO ></h3>
+                            </div>
+                        <a class="story_link" href="">
+                            <div class="story_block">
+                                <img class="cornerCard" src="assets/img/cornerCard.svg" alt="forme géométrique formant un angle droit pour accompagner le titre">
+                                <h3>Story</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="folder_container">
+                    <div class="bg_folder">
+                        <img id="folder" src="assets/img/folder.svg" alt="Image d'une forme géométrique aux bords arrondis">
+                        <div class="portrait_abs">
+                            <img id="portrait3D" src="assets/img/folderMe.svg" alt="Buste représentant Kevin Campana en fichier 3D">
+                        </div>
+                        <div class="rings_abs">
+                            <img id="rings" src="assets/img/folderCircle.svg" alt="anneaux colorés qui entourent le buste 3D"> <!-- keyframes pour le faire tourner sur soi-même -->
+                        </div>
+                    </div> 
+                    <div class="me">
+                        <h2>I'm</h2>
+                        <h1>Kev<span>i</span>n <span>Campana</span></h1>
+                    </div>
+                    <div class="social_wrapper">
+                        <a href="https://github.com/k-cpa"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/kevin-campana-88376532b/"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/kevin.campana/"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </section>
+            <div class="chevronDown">
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
         </div>
-        <section id="homeContainer" class="container">
-            <!-- w-50 -->
-            <div class="content_grid_container">
-                <div class="title">
-                    <!-- favicon demi carré bien épais et gros pos: abs-->
-                    <h2>PORTFOLIO</h2>
-                </div>
-                <div class="video">
-                    <!-- insérer iframe vidéo -->
-                </div>
-                <div class="project_block">
-                    <!-- favicon demi carré -->
-                     <h3>Follow me on my journey</h3>
-                </div>
-                <div class="story_block">
-                    <!-- favicon demi carré -->
-                     <h3>Story</h3>
-                </div>
-            </div>
-            <div class="folder_container">
-            </div>
-        </section>
         <!-- section projet cards -->
         <section id="project">
             <article id="projectContainer" class="container">

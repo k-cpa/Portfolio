@@ -9,20 +9,27 @@
 }
 
 @font-face {
-    font-family: "Merriwheather";
-    src: url(../../font/Baloo_Bhai_2/BalooBhai2-VariableFont_wght.ttf);
+    font-family: "Roboto bold";
+    src: url(../font/Roboto/Roboto-Bold.ttf);
+}
+
+@font-face {
+    font-family: "Baloo";
+    src: url(../font/Baloo_Bhai_2/BalooBhai2-VariableFont_wght.ttf);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
 body {
-    font-family: Roboto;
-    font-weight: 400;
+    font-family: "Roboto";
     background-color: #f2f2f0;
+
+    h2 {
+        font-family: Baloo;
+    }
 }
 
 // HEADER
-
 header {
-    
+    display: none;
 }
