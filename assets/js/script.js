@@ -64,3 +64,27 @@ cards.forEach(card => {
     });
 });
 
+// PROJECT 
+
+const header = document.querySelector('header');
+const homeSection = document.getElementById('home');
+
+if (header && homeSection) {
+// Evenement scroll pour afficher le header en dehors de home
+window.addEventListener('scroll', () => {
+    const homeBottom = homeSection.getBoundingClientRect().bottom;
+    console.log('Position du bas de la section home :', homeBottom); // Vérifier la position
+
+
+    if (homeBottom <= 0) {
+        header.classList.add('visible');
+        console.log('visible');
+    } else {
+        header.classList.remove('visible');
+        console.log('pas visible');
+    }
+})
+} else {
+    console.error('ploplop');
+}
+

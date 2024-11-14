@@ -25,8 +25,53 @@ body h2 {
   font-family: Baloo;
 }
 
+.visible {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  opacity: 1;
+  background-color: #F2F2F0;
+}
+
 header {
   display: none;
+  transition: display 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+}
+header nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 50px;
+}
+header nav h1 {
+  font-family: Baloo;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+header nav h1:hover {
+  color: #E1AD01;
+  transform: scale(1.1);
+}
+header nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  font-family: Roboto bold;
+}
+header nav ul a {
+  color: black;
+  font-size: 1.2rem;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+header nav ul a:hover {
+  border-bottom: 1px solid black;
 }
 
 .line_container {
@@ -318,6 +363,66 @@ svg {
   transform: translate(-50%, -50%);
   font-size: 3rem;
   opacity: 0.3;
+}
+
+#project {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 60rem;
+  padding-top: 200px;
+}
+#project #projectContainer {
+  width: 1720px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#project #projectContainer .card_project {
+  width: 300px;
+  height: 400px;
+  position: absolute;
+  transform: rotateX(-15deg) rotateY(45deg);
+  border-radius: 20px;
+  transition: 0.4s ease;
+  cursor: pointer;
+}
+#project #projectContainer .card_project:nth-child(even) {
+  background-color: #ADAFF2;
+}
+#project #projectContainer .card_project:nth-child(odd) {
+  background-color: #E1AD01;
+}
+#project #projectContainer .card_project:nth-child(1) {
+  left: 150px;
+}
+#project #projectContainer .card_project:nth-child(2) {
+  left: 300px;
+}
+#project #projectContainer .card_project:nth-child(3) {
+  left: 450px;
+}
+#project #projectContainer .card_project:nth-child(4) {
+  left: 600px;
+}
+#project #projectContainer .card_project:nth-child(5) {
+  left: 750px;
+}
+#project #projectContainer .card_project:nth-child(6) {
+  left: 900px;
+}
+#project #projectContainer .card_project:nth-child(7) {
+  left: 1050px;
+}
+#project #projectContainer .card_project:nth-child(8) {
+  left: 1200px;
+}
+#project #projectContainer .card_project:hover {
+  transform: rotateX(0deg) rotateY(0deg) scale(1.1);
+  z-index: 10;
 }
 
 /*# sourceMappingURL=style.css.map */

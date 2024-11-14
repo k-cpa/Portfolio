@@ -1,4 +1,4 @@
-@use "../abstract/mixin" as var;
+@use "../abstract/variable" as var;
 @use "../abstract/mixin";
 
 // FONT SETUP
@@ -30,6 +30,55 @@ body {
 }
 
 // HEADER
+
+// classe d'affichage du header lors du scroll
+.visible {
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    opacity: 1;
+    background-color: var.$bgColor;
+}
+/////////////////////////////////////////////////
+
 header {
+    // display none important pour le home mais ne permet pas l'arrivée smooth. Trouver une solution
     display: none;
+    transition: display 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+
+    nav {
+        @include mixin.flex ($justify: space-between);
+        width: 100%;
+        padding: 10px 50px;
+
+        h1 {
+            font-family: Baloo;
+            cursor: pointer;
+            transition: .3s ease-in-out;
+
+            &:hover {
+                color: var.$principalColor;
+                transform: scale(1.1);
+            }
+        }
+
+        ul {
+            @include mixin.flex;
+            gap: 50px;
+            font-family: Roboto bold;
+
+            a {
+                color: black;
+                font-size: 1.2rem;
+                transition: .3s ease-in-out;
+                cursor: pointer;
+
+                &:hover {
+                    border-bottom: 1px solid black;
+                }
+            }
+        }
+    }
 }

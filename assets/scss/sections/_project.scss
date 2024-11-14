@@ -1,2 +1,46 @@
 @use "../abstract/variable" as var;
 @use "../abstract/mixin";
+
+#project {
+    @include mixin.flex (column, center, center);
+    width: 100vw;
+    height: 60rem;
+    padding-top: 200px;
+
+    #projectContainer {
+        width: 1720px;
+        @include mixin.flex;
+
+        .card_project {
+            width: 300px;
+            height: 400px;
+            position: absolute;
+            transform: rotateX(-15deg) rotateY(45deg);
+            border-radius: 20px;
+            transition: .4s ease;
+            cursor: pointer;
+
+            &:nth-child(even) {
+                background-color: var.$secondaryColor;
+            }
+
+            &:nth-child(odd) {
+                background-color: var.$principalColor;
+            }
+
+            &:nth-child(1) { left: 150px; }
+            &:nth-child(2) { left: 300px; }
+            &:nth-child(3) { left: 450px; }
+            &:nth-child(4) { left: 600px; }
+            &:nth-child(5) { left: 750px; }
+            &:nth-child(6) { left: 900px; }
+            &:nth-child(7) { left: 1050px; }
+            &:nth-child(8) { left: 1200px; }
+
+            &:hover {
+                transform: rotateX(0deg) rotateY(0deg) scale(1.1);
+                z-index: 10;
+            }
+        }
+    }
+}
