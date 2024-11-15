@@ -1,3 +1,74 @@
+// GESTION DU HEADER
+
+////// Evenement scroll pour afficher le header en dehors de home
+
+const header = document.querySelector('header');
+const homeSection = document.getElementById('home');
+
+window.addEventListener('scroll', () => {
+    const homeBottom = homeSection.getBoundingClientRect().bottom;
+    
+    if (homeBottom <= 0) {
+        header.classList.add('visible');
+    } else {
+        header.classList.remove('visible');
+    }
+})
+
+////// Gestion visuel du link navbar au scroll 
+
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.navbar a');
+
+// MàJ link active
+function updateActiveLink() {
+    let currentSectionId = "";
+
+    // Parcours les sections et trouve celle visible
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        
+        if (window.scrollY >= sectionTop - sectionHeight / 3) {
+            currentSectionId = section.getAttribute('id');
+        }
+    });
+
+    // Mise à jour  classe du link
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentSectionId}`) {
+            link.classList.add ('active');
+        }
+    })
+}
+// Ecoute even scroll
+window.addEventListener('scroll', updateActiveLink);
+
+const cardProjects = document.querySelectorAll('.card_project');
+
+cardProjects.forEach(card => {
+    card.addEventListener('click', function(event) {
+        cardProjects.forEach(card => {
+            card.classList.remove('cardActive');
+            card.classList.remove('disableHover');
+        });
+        event.stopPropagation();
+        card.classList.add ('cardActive')
+    });
+});
+
+document.addEventListener('click', function() {
+    cardProjects.forEach(card => {
+      card.classList.remove('cardActive');
+      card.scrollTop = 0;  
+    })
+})
+////////////////////////////////////////////////////////////////
+
+
+// GESTION WAVES BACKGROUND HOME
+
 document.addEventListener('DOMContentLoaded', function() {
     const wavesGroup = document.getElementById('wavesGroup');
     const waves = [...wavesGroup.querySelectorAll('path')];
@@ -27,9 +98,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
         requestAnimationFrame(animate);
     }
-    requestAnimationFrame(animate);
+    animate();
 });
 
+/////////////////////////////////////////////////////////
+
+
+
+// GESTION MOUVEMENT "GUM" CONTAINER HOME 
 
 const cards = document.querySelectorAll('.card3D');
 
@@ -64,27 +140,40 @@ cards.forEach(card => {
     });
 });
 
-// PROJECT 
+/////////////////////////////////////////////////////////
 
-const header = document.querySelector('header');
-const homeSection = document.getElementById('home');
-
-if (header && homeSection) {
-// Evenement scroll pour afficher le header en dehors de home
-window.addEventListener('scroll', () => {
-    const homeBottom = homeSection.getBoundingClientRect().bottom;
-    console.log('Position du bas de la section home :', homeBottom); // Vérifier la position
+// Click sur card projects
 
 
-    if (homeBottom <= 0) {
-        header.classList.add('visible');
-        console.log('visible');
-    } else {
-        header.classList.remove('visible');
-        console.log('pas visible');
-    }
-})
-} else {
-    console.error('ploplop');
-}
+
+/////////////////////////////////////////////////////////
+
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     const carouselTrack = document.querySelector('.logo_wrapper');
+//     const images = Array.from(carouselTrack.querySelectorAll('.techImg'));
+
+//     let offset = 0;
+//     const imageWidth = images[0].getBoundingClientRect().width + 500; // Largeur + espacement
+//     const totalWidth = imageWidth * images.length; // Largeur totale de toutes les images
+
+//     function scrollCarousel() {
+//         offset -= 2; // Ajustez la vitesse (en pixels)
+//         if (Math.abs(offset) >= totalWidth) {
+//             offset = 0; // Réinitialise la position
+//         }
+//         carouselTrack.style.transform = `translateX(${offset}px)`;
+//         requestAnimationFrame(scrollCarousel);
+//     }
+
+//     // Dupliquez les images pour une boucle infinie fluide
+//     function duplicateImages() {
+//         const clonedImages = images.map(img => img.cloneNode(true));
+//         clonedImages.forEach(clone => carouselTrack.appendChild(clone));
+//     }
+
+//     duplicateImages();
+//     scrollCarousel();
+// });
 

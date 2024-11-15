@@ -20,6 +20,10 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: "Roboto";
     background-color: #f2f2f0;
@@ -38,7 +42,8 @@ body {
     top: 0;
     width: 100%;
     opacity: 1;
-    background-color: var.$bgColor;
+    background-color: transparent;
+    z-index: 1000;
 }
 /////////////////////////////////////////////////
 
@@ -70,14 +75,38 @@ header {
             font-family: Roboto bold;
 
             a {
+                display: block;
                 color: black;
                 font-size: 1.2rem;
-                transition: .3s ease-in-out;
+                transition: .3s ease;
                 cursor: pointer;
+                padding-bottom: 2px;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    width: 0;
+                    height: 1px;
+                    background-color: var.$secondaryColor;
+                    transition: width .4s ease, left .4s ease;
+                }
 
                 &:hover {
-                    border-bottom: 1px solid black;
+                    color: var.$secondaryColor;
+                    transform: scale(1.1);
+
+                    &::before {
+                        width: 100%;
+                        left: 0;
+                    }
                 }
+            }
+
+            a.active {
+                color: var.$principalColor;
+                border-bottom: 2px solid var.$lightPrincipalColor;
             }
         }
     }
