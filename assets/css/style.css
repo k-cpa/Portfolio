@@ -82,6 +82,7 @@ header nav ul {
 header nav ul a {
   display: block;
   color: black;
+  font-weight: bold;
   font-size: 1.2rem;
   transition: 0.3s ease;
   cursor: pointer;
