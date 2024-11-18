@@ -15,6 +15,11 @@
     <header> <!--display none passage en block au scroll-->
         <nav class="navbar">
             <h1>Kev<span>i</span>n Campana</h1>
+            <div class="burger_menu">
+                <div class="burger_icon">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#project">Projects</a></li>
@@ -64,8 +69,7 @@
                             </div>
                         </a>
                             <div class="video">
-                                <!-- insérer iframe vidéo -->
-                                <h3>< VIDEO ></h3>
+                                <video src="assets/video/20241017_143912.mp4" autoplay muted loop></video>
                             </div>
                         <a class="story_link" href="#story">
                             <div class="story_block">
@@ -76,23 +80,20 @@
                     </div>
                 </div>
                 <div class="folder_container">
-                    <div class="bg_folder">
-                        <img id="folder" src="assets/img/folder.svg" alt="Image d'une forme géométrique aux bords arrondis">
-                        <div class="portrait_abs">
-                            <img id="portrait3D" src="assets/img/folderMe.svg" alt="Buste représentant Kevin Campana en fichier 3D">
-                        </div>
-                        <div class="rings_abs">
-                            <img id="rings" src="assets/img/folderCircle.svg" alt="anneaux colorés qui entourent le buste 3D"> <!-- keyframes pour le faire tourner sur soi-même -->
-                        </div>
-                    </div> 
-                    <div class="me">
-                        <h2>I'm</h2>
-                        <h1>Kev<span>i</span>n <span>Campana</span></h1>
+                    <div class="portrait_abs">
+                        <img id="portrait3D" src="assets/img/folderMe.svg" alt="Buste représentant Kevin Campana en fichier 3D">
+                    </div>
+                    <div class="rings_abs">
+                        <img id="rings" src="assets/img/folderCircle.svg" alt="anneaux colorés qui entourent le buste 3D"> <!-- keyframes pour le faire tourner sur soi-même -->
                     </div>
                     <div class="social_wrapper">
                         <a href="https://github.com/k-cpa"><i class="fa-brands fa-github"></i></a>
                         <a href="https://www.linkedin.com/in/kevin-campana-88376532b/"><i class="fa-brands fa-linkedin"></i></a>
                         <a href="https://www.instagram.com/kevin.campana/"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                    <div class="me">
+                        <h2>I'm</h2>
+                        <h1>Kevin <span>Campana</span></h1>
                     </div>
                 </div>
             </article>
@@ -105,40 +106,138 @@
     <!-- section projet cards -->
     <section id="project">
         <article id="projectContainer" class="container">
+            <div class="project_title">
+                <h2>My journey so far</h2>
+            </div>
             <div class="cards_wrapper">
-                <div id="cardsProject" class="card_project">
+                <div id="project1" class="card_project">
                     <img src="assets/img/projects/resto.png" alt="">
                 </div>
-                <div id="cardsProject" class="card_project">
+                <div id="project2" class="card_project">
                     <img src="assets/img/projects/arclabs.png" alt="">
                 </div>
-                <div id="cardsProject" class="card_project">
+                <div id="project3" class="card_project">
                     <img src="assets/img/projects/peps.png" alt="">
                 </div>
-                <div id="cardsProject" class="card_project">
+                <div id="project4" class="card_project">
                     <img src="assets/img/projects/starter.png" alt="">
                 </div>
-                <div id="cardsProject" class="card_project">
+                <div id="project5" class="card_project">
                     <img src="assets/img/projects/travel.png" alt="">
                 </div>
-                <div id="cardsProject" class="card_project">
+                <div id="project6" class="card_project">
                     <img src="assets/img/projects/resident-evil.png" alt="">
                 </div>
-                <!-- <div id="cardsProject" class="card_project"></div>
-                <div id="cardsProject" class="card_project"></div> -->
+            </div>
+            <div id="techCarousel" class="tech_carousel">
+                <div class="logo_wrapper">
+                    <img class="techImg" src="assets/img/tech/JS.svg" alt="Logo du langage Javascript">
+                    <img class="techImg" src="assets/img/tech/HTML.svg" alt="Logo du langage HTML 5">
+                    <img class="techImg" src="assets/img/tech/CSS.svg" alt="Logo du langage CSS 3">
+                    <img class="techImg" src="assets/img/tech/TAILWIND.svg" alt="Logo du langage Tailwind">
+                </div>
             </div>
         </article>
-        <div id="techCarousel" class="tech_carousel">
-            <div class="logo_wrapper">
-                <img class="techImg" src="assets/img/tech/JS.svg" alt="Logo du langage Javascript">
-                <img class="techImg" src="assets/img/tech/HTML.svg" alt="Logo du langage HTML 5">
-                <img class="techImg" src="assets/img/tech/CSS.svg" alt="Logo du langage CSS 3">
-                <img class="techImg" src="assets/img/tech/TAILWIND.svg" alt="Logo du langage Tailwind">
-            </div>
-        </div>
-        <div class="project_title">
-            <h2>My journey so far</h2>
-        </div>
     </section>
+
+    <!-- section story -->
+    <section id="story">
+        <!-- Fond damier SVG -->
+        <div class="container">
+            <article class="educ_card">
+                <h2>My educational background</h2>
+                <svg class="line">
+                    <path d="M0 300H2000" stroke="black" fill="none" stroke-width="2" />
+                </svg>
+                <div class="slider_container educ_slider">
+                    <div class="story_event highschool_card">
+                        <img class="dot" src="assets/img/dotY.svg" alt="logo point jaune">
+                        <div class="content highschool_content">
+                            <h4>High School Diploma</h4>
+                            <p>literature and humanities</p>
+                        </div>
+                    </div>
+                    <div class="story_event bachelor_card">
+                        <img class="dot" src="assets/img/dotY.svg" alt="logo point jaune">
+                        <div class="content bachelor_content">
+                            <h4>Bachelor's Degree</h4>
+                            <p>Psychology</p>
+                        </div>
+                    </div>
+                    <div class="story_event master_card">
+                        <img class="dot" src="assets/img/dotY.svg" alt="logo point jaune">
+                        <div class="content master_content">
+                            <h4>Master's Degree</h4>
+                            <p>social psychology</p>
+                        </div> 
+                    </div>
+                </div>
+            </article>
+            <article class="work_card">
+                    <h2>My work chronicles</h2>
+                    <svg class="line">
+                        <path d="M0 300H2000" stroke="black" fill="none" stroke-width="2" />
+                    </svg>
+                    <div class="slider_container work_slider">
+                        <div class="story_event schoolSupport_card">
+                            <img class="dot" src="assets/img/dotB.svg" alt="logo cercle bleu">
+                            <div class="content schoolSupport_content">
+                                <h4>School Support staff</h4>
+                                <p>2020 - 2021</p>
+                            </div>
+                        </div>
+                        <div class="story_event kart_card">
+                            <img class="dot" src="assets/img/dotB.svg" alt="logo cercle bleu">
+                            <div class="content kart_content">
+                                <h4>Go-Kart attendant</h4>
+                                <p>2021 - 2022</p>
+                            </div>
+                        </div>
+                        <div class="story_event cashier_card">
+                            <img class="dot" src="assets/img/dotB.svg" alt="logo cercle bleu">
+                            <div class="content cashier_content">
+                                <h4>Cashier</h4>
+                                <p>2022 - 2023</p>
+                            </div>
+                        </div>
+                        <div class="story_event bartender_card">
+                            <img class="dot" src="assets/img/dotB.svg" alt="logo cercle bleu">
+                            <div class="content bartender_content">
+                                <h4>Bartender</h4>
+                                <p>2022 - 2023</p>
+                            </div>
+                        </div>
+                        <div class="story_event HR_card">
+                            <img class="dot" src="assets/img/dotB.svg" alt="logo cercle bleu">
+                            <div class="content HR_content">
+                                <h4>Human Ressources</h4>
+                                <p>2023</p>
+                            </div>
+                        </div>
+                        <div class="story_event PM_card">
+                            <img class="dot" src="assets/img/dotB.svg" alt="logo cercle bleu">
+                            <div class="content PM_content">
+                                <h4>Property Manager</h4>
+                                <p>2024</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+                <a class="cv" href="assets/pdf/cv_campana.pdf" download class="download_link">Download my CV</a>
+        </section>
+        <footer>
+            <nav class="navbar container">
+                    <h1>Kev<span>i</span>n Campana</h1>
+                    <div class="copyright">
+                        <p>&copy; 2024 - All rights reserved.</p>
+                    </div>
+                <div class="social_wrapper">
+                    <a href="https://github.com/k-cpa"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/kevin-campana-88376532b/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/kevin.campana/"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </nav>
+        </footer>
 </body>
 </html>

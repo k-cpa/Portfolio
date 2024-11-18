@@ -1,2 +1,185 @@
 @use "../abstract/variable" as var;
 @use "../abstract/mixin";
+
+#story {
+    @include mixin.flex (column, space-evenly, center);
+    padding-bottom: 6rem;
+    overflow: hidden;
+    position: relative;
+    // GENERAL
+
+    .container {
+        @include mixin.flex(column, center, center);
+        width: 1720px;
+        gap: 10rem;
+    }
+
+    .educ_card, .work_card {
+        @include mixin.flex (column, center, flex-start);
+        width: 80%;
+        height: 40rem;
+        overflow: hidden;
+        position: relative; 
+        background-image: url('../img/storyBg.svg');
+        background-size: cover;
+        border-radius: 20px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var.$bgColor;
+            opacity: .5;
+            border-radius: inherit;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: black;
+            z-index: 2;
+        }
+
+        .line {
+            width: 100%;
+            height: 100%;
+          }
+    }
+
+
+    .content {
+        @include mixin.flex (column, center, center);
+        background-color: var.$bgColor;
+        border: 1px solid black;
+        box-shadow: 4px 4px 4px 4px rgba(0,0,0, .8);
+        width: 12rem;
+        height: 8rem;
+        z-index: 1;
+        margin-top: -10px;
+        animation: windCard 2s linear infinite;
+        transform-origin: top center;
+        cursor: pointer;
+
+        &:hover {
+            animation-play-state: paused;
+            transform: scale(1.1);
+        }
+    }
+
+    .slider_container {
+        @include mixin.flex($justify: space-between);
+        width: 100%;
+        height: 80%;
+    }
+
+
+
+    .story_event {
+        @include mixin.flex(column, center, center);
+    }
+
+
+    // EDUC CARD
+
+    .educ_card {
+        h2 {
+            padding-left: 50px;
+        }
+    }
+
+    .educ_slider {
+        animation: moveRight 20s linear infinite;
+        animation-play-state: running;
+    }
+
+
+    .highscool_content {
+        animation-delay: 1.2s;
+    }
+
+    .bachelor_content {
+        animation-delay: .7s;
+    } 
+
+    .dot {
+        z-index: 2;
+        margin-top: 50px;
+    }
+}
+
+// WORK CARD
+
+.work_card {
+    h2 {
+        align-self: flex-end;
+        padding-right: 50px;
+    }
+
+    .work_slider {
+        animation-duration: 20s;
+        animation: moveLeft 30s linear infinite;
+        animation-play-state: running;
+    
+        .story_event {
+            margin-left: 350px;
+        }
+    }
+}
+
+// DL CV
+.cv {
+    @include mixin.flex (column, center, center);
+    // width: 30%;
+    margin-top: 6rem;
+    text-align: center;
+    background-color: var.$principalColor;
+    padding: 20px;
+    border-radius: 20px;
+    opacity: .5;
+    color: black;
+    transition: .3s ease;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+
+
+
+
+// Balancement des content card
+
+@keyframes windCard {
+    0%, 100% {
+        transform: rotate(-15deg); /* Début du mouvement, vers la gauche */
+    }
+    25% {
+        transform: rotate(0deg); /* Milieu du mouvement, au centre */
+    }
+    50% {
+        transform: rotate(15deg); /* Fin du mouvement, vers la droite */
+    }
+    75% {
+        transform: rotate(0deg); /* Retour au centre */
+    }
+}
+
+// Déplacement des points de la gauche vers la droite. 
+@keyframes moveRight {
+    0% {
+        transform: translateX(-105%);
+    } 100% {
+        transform: translateX(110%);
+    }
+}
+@keyframes moveLeft {
+    0% {
+        transform: translateX(105%);
+    } 100% {
+        transform: translateX(-280%);
+    }
+}

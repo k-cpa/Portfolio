@@ -4,21 +4,18 @@
 
 const header = document.querySelector('header');
 const homeSection = document.getElementById('home');
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.navbar a');
 
-window.addEventListener('scroll', () => {
-    const homeBottom = homeSection.getBoundingClientRect().bottom;
-    
-    if (homeBottom <= 0) {
+function showNavbarScroll () {
+    if (window.scrollY > 0) {
         header.classList.add('visible');
     } else {
         header.classList.remove('visible');
     }
-})
+}
 
 ////// Gestion visuel du link navbar au scroll 
-
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.navbar a');
 
 // MàJ link active
 function updateActiveLink() {
@@ -34,7 +31,7 @@ function updateActiveLink() {
         }
     });
 
-    // Mise à jour  classe du link
+    // Mise à jour CSS du navbar a en fonction d'où on est sur le site
     navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === `#${currentSectionId}`) {
@@ -43,27 +40,24 @@ function updateActiveLink() {
     })
 }
 // Ecoute even scroll
-window.addEventListener('scroll', updateActiveLink);
-
-const cardProjects = document.querySelectorAll('.card_project');
-
-cardProjects.forEach(card => {
-    card.addEventListener('click', function(event) {
-        cardProjects.forEach(card => {
-            card.classList.remove('cardActive');
-            card.classList.remove('disableHover');
-        });
-        event.stopPropagation();
-        card.classList.add ('cardActive')
-    });
+window.addEventListener('scroll', () => {
+    showNavbarScroll();
+    updateActiveLink();
 });
 
-document.addEventListener('click', function() {
-    cardProjects.forEach(card => {
-      card.classList.remove('cardActive');
-      card.scrollTop = 0;  
-    })
-})
+// GESTION BURGER MENU AU RESPONSIVE
+const burgerIcon = document.querySelector('.burger_icon');
+const menu = document.querySelector('.navbar ul');
+
+
+    burgerIcon.addEventListener('click', () => {
+        menu.classList.toggle('active');
+    });
+
+
+
+
+
 ////////////////////////////////////////////////////////////////
 
 
@@ -142,38 +136,51 @@ cards.forEach(card => {
 
 /////////////////////////////////////////////////////////
 
-// Click sur card projects
+
+
+///// Gestion des cards project 
+const cardProjects = document.querySelectorAll('.card_project');
+
+cardProjects.forEach(card => {
+    card.addEventListener('click', function(event) {
+        cardProjects.forEach(card => {
+            card.classList.remove('cardActive');
+            card.classList.remove('disableHover');
+        });
+        event.stopPropagation();
+        card.classList.add ('cardActive')
+    });
+});
+
+document.addEventListener('click', function() {
+    cardProjects.forEach(card => {
+      card.classList.remove('cardActive');
+      card.scrollTop = 0;  
+    })
+})
 
 
 
 /////////////////////////////////////////////////////////
 
+//  ANIMATION STORY
 
+// Pause de l'animation du slider au hover de chaque content cards
+const contentCards = document.querySelectorAll('.content');
+const educSlider = document.querySelector('.educ_slider');
+const workSlider = document.querySelector('.work_slider');
 
-// document.addEventListener('DOMContentLoaded', () => {
-//     const carouselTrack = document.querySelector('.logo_wrapper');
-//     const images = Array.from(carouselTrack.querySelectorAll('.techImg'));
+contentCards.forEach(content => {
+    content.addEventListener('mouseenter', () => {
+        educSlider.style.animationPlayState = 'paused';
+        workSlider.style.animationPlayState = 'paused';
+    })
 
-//     let offset = 0;
-//     const imageWidth = images[0].getBoundingClientRect().width + 500; // Largeur + espacement
-//     const totalWidth = imageWidth * images.length; // Largeur totale de toutes les images
-
-//     function scrollCarousel() {
-//         offset -= 2; // Ajustez la vitesse (en pixels)
-//         if (Math.abs(offset) >= totalWidth) {
-//             offset = 0; // Réinitialise la position
-//         }
-//         carouselTrack.style.transform = `translateX(${offset}px)`;
-//         requestAnimationFrame(scrollCarousel);
-//     }
-
-//     // Dupliquez les images pour une boucle infinie fluide
-//     function duplicateImages() {
-//         const clonedImages = images.map(img => img.cloneNode(true));
-//         clonedImages.forEach(clone => carouselTrack.appendChild(clone));
-//     }
-
-//     duplicateImages();
-//     scrollCarousel();
-// });
+    content.addEventListener('mouseleave', () => {
+        educSlider.style.animationPlayState = 'running';
+        workSlider.style.animationPlayState = 'running';
+    })
+})
+    
+/////////////////////////////////////////////////////////
 
