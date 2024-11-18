@@ -61,13 +61,13 @@ header nav {
   width: 100%;
   padding: 10px 50px;
 }
-header nav a {
+header nav .title_nav {
   font-family: Baloo;
   cursor: pointer;
   transition: 0.3s ease-in-out;
   color: black;
 }
-header nav a:hover {
+header nav .title_nav:hover {
   color: #E1AD01;
   transform: scale(1.1);
 }
@@ -82,7 +82,6 @@ header nav ul {
 header nav ul a {
   display: block;
   color: black;
-  font-weight: bold;
   font-size: 1.2rem;
   transition: 0.3s ease;
   cursor: pointer;
