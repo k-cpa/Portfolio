@@ -61,12 +61,13 @@ header nav {
   width: 100%;
   padding: 10px 50px;
 }
-header nav h1 {
+header nav a {
   font-family: Baloo;
   cursor: pointer;
   transition: 0.3s ease-in-out;
+  color: black;
 }
-header nav h1:hover {
+header nav a:hover {
   color: #E1AD01;
   transform: scale(1.1);
 }
@@ -125,12 +126,13 @@ footer .navbar {
   align-items: center;
   margin-bottom: 1.5rem;
 }
-footer .navbar h1 {
+footer .navbar a {
   font-family: Baloo;
   cursor: pointer;
   transition: 0.3s ease-in-out;
+  color: black;
 }
-footer .navbar h1:hover {
+footer .navbar a:hover {
   color: #E1AD01;
   transform: scale(1.1);
 }

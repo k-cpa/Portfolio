@@ -70,10 +70,11 @@ header {
         width: 100%;
         padding: 10px 50px;
 
-        h1 {
+        a {
             font-family: Baloo;
             cursor: pointer;
             transition: .3s ease-in-out;
+            color: black;
 
             &:hover {
                 color: var.$principalColor;
@@ -135,10 +136,11 @@ footer {
         @include mixin.flex($justify: space-between);
         margin-bottom: 1.5rem;
 
-        h1 {
+        a {
             font-family: Baloo;
             cursor: pointer;
             transition: .3s ease-in-out;
+            color: black;
 
             &:hover {
                 color: var.$principalColor;
