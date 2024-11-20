@@ -101,12 +101,26 @@
     }
 
     .bachelor_content {
-        animation-delay: .7s;
+        animation-delay: .5s;
     } 
 
     .dot {
         z-index: 2;
         margin-top: 50px;
+    }
+
+    // WORK CARD
+    .kart_content {
+        animation-delay: .3s;
+    }
+    .cashier_content {
+        animation-delay: 1.2s;
+    }
+    .bartender_content {
+        animation-delay: 1.9s;
+    }
+    .PM_content {
+        animation-delay: .7s;
     }
 }
 

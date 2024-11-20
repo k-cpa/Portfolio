@@ -149,15 +149,29 @@ cardProjects.forEach(card => {
         });
         event.stopPropagation();
         card.classList.add ('cardActive')
+        document.body.style.overflow = 'hidden';
+
+        card.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+        });
+
+        cardProjects.forEach(otherCard => {
+            if (otherCard !== card) {
+                otherCard.classList.add('disableHover');
+            }
+        })
     });
 });
 
 document.addEventListener('click', function() {
     cardProjects.forEach(card => {
       card.classList.remove('cardActive');
+      card.classList.remove('disableHover');
       card.scrollTop = 0;  
-    })
-})
+    });
+    document.body.style.overflow = 'auto';
+});
 
 
 
