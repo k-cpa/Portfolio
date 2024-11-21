@@ -100,7 +100,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // GESTION MOUVEMENT "GUM" CONTAINER HOME 
-
 const cards = document.querySelectorAll('.card3D');
 
 cards.forEach(card => {
@@ -141,28 +140,48 @@ cards.forEach(card => {
 ///// Gestion des cards project 
 const cardProjects = document.querySelectorAll('.card_project');
 
-cardProjects.forEach(card => {
+cardProjects.forEach(card => {    
+    const xmark = card.querySelector('.fa-xmark');
+
     card.addEventListener('click', function(event) {
         cardProjects.forEach(card => {
             card.classList.remove('cardActive');
             card.classList.remove('disableHover');
+
         });
         event.stopPropagation();
         card.classList.add ('cardActive')
         document.body.style.overflow = 'hidden';
 
-        card.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center'
-        });
+        setTimeout(function () {
+            card.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }, 100);
+        
 
         cardProjects.forEach(otherCard => {
             if (otherCard !== card) {
                 otherCard.classList.add('disableHover');
             }
-        })
+        });
+    });
+
+    xmark.addEventListener('click', function (event) { 
+        card.classList.remove('cardActive');
+        document.body.style.overflow = 'auto';
+
+        cardProjects.forEach(otherCard => {
+            if (otherCard !== card && card.classList !== 'disableHover') {
+            otherCard.classList.remove('disableHover');
+            }
+        });
+        event.stopPropagation();
     });
 });
+
+
 
 document.addEventListener('click', function() {
     cardProjects.forEach(card => {
@@ -172,6 +191,7 @@ document.addEventListener('click', function() {
     });
     document.body.style.overflow = 'auto';
 });
+
 
 
 

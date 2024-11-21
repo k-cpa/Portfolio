@@ -133,8 +133,8 @@
     }
 
     .work_slider {
-        animation-duration: 20s;
-        animation: moveLeft 30s linear infinite;
+        // animation-duration: 21s;
+        animation: moveLeft 20s linear infinite;
         animation-play-state: running;
     
         .story_event {
@@ -185,15 +185,15 @@
 // Déplacement des points de la gauche vers la droite. 
 @keyframes moveRight {
     0% {
-        transform: translateX(-105%);
+        transform: translateX(-115%);
     } 100% {
-        transform: translateX(110%);
+        transform: translateX(105%);
     }
 }
 @keyframes moveLeft {
     0% {
         transform: translateX(105%);
     } 100% {
-        transform: translateX(-280%);
+        transform: translateX(-240%);
     }
 }

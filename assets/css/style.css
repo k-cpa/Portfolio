@@ -488,7 +488,7 @@ footer .navbar .social_wrapper i {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 6rem;
+  gap: 3rem;
   margin-top: 6rem;
 }
 #project #projectContainer .project_title {
@@ -507,13 +507,14 @@ footer .navbar .social_wrapper i {
   height: 28rem;
   transform: rotateX(-15deg) rotateY(45deg) translateX(calc(-1 * var(--offset, 0px)));
   border-radius: 20px;
-  transition: 0.4s ease;
+  transition: transform 0.4s ease, opacity 0.4s ease;
   cursor: pointer;
   margin-bottom: 3rem;
   margin-top: 3rem;
   opacity: 0.8;
   overflow: hidden;
   position: relative;
+  will-change: transform, opacity;
 }
 #project #projectContainer .card_project:not(:first-child) {
   margin-left: -130px;
@@ -525,9 +526,17 @@ footer .navbar .social_wrapper i {
 }
 #project #projectContainer .card_project.cardActive {
   transform: scale(1.7);
-  overflow-y: scroll;
+  overflow-y: auto;
+  scroll-padding: 50px;
   opacity: 1;
   z-index: 10;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+#project #projectContainer .card_project.cardActive .fa-xmark {
+  opacity: 1;
+  transform: rotateZ(180deg) scale(1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  will-change: transform, opacity;
 }
 #project #projectContainer .card_project.disableHover {
   pointer-events: none;
@@ -535,6 +544,18 @@ footer .navbar .social_wrapper i {
 }
 #project #projectContainer .card_project img {
   max-width: 100%;
+  overflow-y: auto;
+}
+#project #projectContainer .card_project .fa-xmark {
+  position: absolute;
+  top: 3%;
+  right: 5%;
+  color: #E1AD01;
+  font-size: 1.5rem;
+  transition: 0.5s ease;
+  opacity: 0;
+  transform: rotateZ(0deg) scale(0);
+  z-index: 1000;
 }
 #project .tech_carousel {
   display: flex;
@@ -545,7 +566,8 @@ footer .navbar .social_wrapper i {
   border-radius: 6px;
   overflow: hidden;
   opacity: 0.3;
-  margin-bottom: 3rem;
+  margin-bottom: 15rem;
+  margin-top: 4rem;
   padding: 5px;
   flex-wrap: wrap;
 }
@@ -679,8 +701,7 @@ footer .navbar .social_wrapper i {
   padding-right: 50px;
 }
 .work_card .work_slider {
-  animation-duration: 20s;
-  animation: moveLeft 30s linear infinite;
+  animation: moveLeft 20s linear infinite;
   animation-play-state: running;
 }
 .work_card .work_slider .story_event {
@@ -721,10 +742,10 @@ footer .navbar .social_wrapper i {
 }
 @keyframes moveRight {
   0% {
-    transform: translateX(-105%);
+    transform: translateX(-115%);
   }
   100% {
-    transform: translateX(110%);
+    transform: translateX(105%);
   }
 }
 @keyframes moveLeft {
@@ -732,7 +753,7 @@ footer .navbar .social_wrapper i {
     transform: translateX(105%);
   }
   100% {
-    transform: translateX(-280%);
+    transform: translateX(-240%);
   }
 }
 @media screen and (max-width: 1520px) {
@@ -767,6 +788,15 @@ footer .navbar .social_wrapper i {
   }
   .folder_container .social_wrapper i {
     font-size: 2.5rem;
+  }
+  #project #projectContainer .card_project {
+    width: 40%;
+  }
+  #project #projectContainer .card_project:nth-child(4) {
+    margin-left: 0px;
+  }
+  #project #projectContainer .card_project.cardActive {
+    transform: scale(1.2);
   }
 }
 @media screen and (max-width: 1120px) {
@@ -811,6 +841,15 @@ footer .navbar .social_wrapper i {
   .folder_container .me {
     display: none;
   }
+  #story .container {
+    max-width: 100%;
+  }
+  #story .educ_card {
+    width: 100%;
+  }
+  #story .work_card {
+    width: 100%;
+  }
 }
 @media screen and (max-width: 1020px) {
   .container {
@@ -845,6 +884,9 @@ footer .navbar .social_wrapper i {
   nav ul li {
     opacity: 0;
   }
+  nav ul a::before {
+    display: none;
+  }
   .burger_menu {
     display: block;
   }
@@ -875,6 +917,23 @@ footer .navbar .social_wrapper i {
   .folder_container .portrait_abs img {
     width: 120%;
   }
+  #project #projectContainer .card_project {
+    transition: 0.3s ease-in-out;
+  }
+  #project #projectContainer .card_project:hover {
+    transform: none;
+  }
+  #project #projectContainer .card_project.cardActive {
+    transform: scale(1.5);
+    transition: 0.3s ease-in-out;
+  }
+  footer .navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
 }
 @media screen and (max-width: 720px) {
   .container {
@@ -888,6 +947,62 @@ footer .navbar .social_wrapper i {
   }
   .folder_container .portrait_abs {
     left: -300px;
+  }
+  #story .container {
+    max-width: 100%;
+  }
+  #story .educ_card {
+    width: 100%;
+  }
+  #story .educ_card .dot {
+    margin-top: 0px;
+  }
+  #story .work_card {
+    width: 100%;
+  }
+  #story .work_card .work_slider .story_event {
+    margin-left: 0px;
+  }
+  @keyframes moveLeft {
+    0% {
+      transform: translateX(105%);
+    }
+    100% {
+      transform: translateX(-280%);
+    }
+  }
+  #project #projectContainer .cards_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    perspective: 500px;
+  }
+  #project #projectContainer .card_project {
+    transform: rotateX(0deg) rotateY(15deg) translateY(5px);
+    width: 12rem;
+    height: 20rem;
+    margin-top: 0rem;
+    margin-bottom: -5rem;
+    opacity: 1;
+  }
+  #project #projectContainer .card_project:not(:first-child) {
+    margin-left: 0px;
+  }
+  #project #projectContainer .card_project:last-child, #project #projectContainer .card_project:nth-child(5) {
+    height: fit-content;
+    margin-bottom: -4rem;
+  }
+  #project #projectContainer .card_project.cardActive {
+    width: 100%;
+    transform: scale(1);
+  }
+  #project #projectContainer .tech_carousel {
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+  }
+  #project #projectContainer .tech_carousel .logo_wrapper {
+    gap: 5rem;
   }
 }
 @media screen and (max-width: 620px) {
@@ -907,7 +1022,7 @@ footer .navbar .social_wrapper i {
     padding-left: 60px;
   }
   .home_content_container .title h2 {
-    font-size: 100px;
+    font-size: 80px;
   }
   .home_content_container .home_grid {
     display: flex;
@@ -938,6 +1053,32 @@ footer .navbar .social_wrapper i {
   }
   .folder_container .portrait_abs img {
     width: 100%;
+  }
+  #story article h2 {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 520px) {
+  .container {
+    max-width: 420px;
+  }
+  #project h2 {
+    font-size: 2.5rem;
+  }
+  .chevronDown {
+    display: none;
+  }
+}
+@media screen and (max-width: 420px) {
+  .container {
+    max-width: 320px;
+  }
+  .home_content_container .title {
+    padding-left: 40px;
+    padding-top: 10px;
+  }
+  .home_content_container .title h2 {
+    font-size: 60px;
   }
 }
 
