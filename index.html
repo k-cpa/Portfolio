@@ -73,7 +73,7 @@
                             </div>
                         </a>
                             <div class="video">
-                                <video src="assets/video/20241017_143912.mp4" autoplay muted loop></video>
+                                <!-- <video src="assets/video/20241017_143912.mp4" autoplay muted loop></video> -->
                             </div>
                         <a class="story_link" href="#story">
                             <div class="story_block">
@@ -106,7 +106,56 @@
             </div>
         </div>
     </section>
-
+    <!-- SECTION ABOOUT ME  
+     still in progress need to add content -->
+     <section id="about">
+        <article class="container">
+            <div class="about_title_container">
+                <h2>The path that choose me</h2>
+                <h3>A short story of the unknown</h3>
+            </div>
+            <div class="text_about english_about">
+                <div class="verse_card verse_one">
+                    <p>Before I speak, I must now let you know my creed,
+                        <span>I cherish poetry and music’s gentle seed.</span>
+                        <span>All that soothes the soul and lifts the heart to start,</span>
+                        <span>I’ll wield it freely, with no qualms, as I profess my art.</span>
+                    </p>
+                </div>
+                <div class="verse_card verse_two">
+                    <p>One morning, I seek the reason of mankind's quest,
+                        <span>What causes all these changes, which never seem to rest?</span>
+                        <span>In his unpredictable ways, can we not find a clue,</span>
+                        <span>To make him change, and see the world anew?</span>
+                    </p>
+                </div>
+                <div class="verse_card verse_three">
+                    <p>We then uncover the forces that lie at the core,
+                        <span>Of racism, sexism, and the struggles we deplore.</span>
+                        <span>We realize the subtlety of actions to take,</span>
+                        <span>To make the world understand, without force, what’s at stake.</span>
+                    </p>
+                </div>
+                <div class="verse_card verse_four">
+                    <p>While crafting these thrilling, passionate tales,
+                        <span>We stumble upon a vast reality that prevails.</span>
+                        <span>An imagined world that once seemed far away,</span>
+                        <span>Now swiftly becomes more central every day.</span>
+                    </p>
+                </div>
+                <div class="verse_card verse_five">
+                    <p>Hundreds, thousands of colored lines unfold,
+                        <span>That seem more logical than the world we've been told.</span>
+                        <span>For here, no law prevails, but the rules that guide inside.</span>
+                        <span>Eager to be challenged, refined, and amplified.</span>
+                    </p>
+                </div>
+                <div class="verse_card verse_six">
+                    <p></p>
+                </div>
+            </div>
+        </article>
+     </section>
     <!-- section projet cards -->
     <section id="project">
         <article id="projectContainer" class="container">
@@ -235,6 +284,27 @@
                 </article>
             </div>
                 <a class="cv" href="assets/pdf/cv_campana.pdf" download class="download_link">Download my CV</a>
+        </section>
+        <!-- SECTION contact form - *still on it* 
+         Need to connect database and make it functionnal -->
+        <section id="form">
+            <div class="container">
+                <div class="title">
+                    <h2>Contact me</h2>
+                </div>
+                <form action="index.html#form"> <!-- maybe add the enctype="multimedia" thing for picture transfert-->
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="surname">Surname</label>
+                    <input type="text" id="surname" name="surname" required>
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="content">Your message</label>
+                    <input type="textarea" id="content" name="content" required>
+                    <label for="img">Your mood picture - <span>optional but greatly appreciated</span></label>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
         </section>
         <footer>
             <nav class="navbar container">

@@ -80,6 +80,7 @@ header nav ul {
   font-family: Roboto bold;
 }
 header nav ul a {
+  position: relative;
   display: block;
   color: black;
   font-size: 1.2rem;
@@ -468,6 +469,87 @@ footer .navbar .social_wrapper i {
   opacity: 0.3;
 }
 
+#about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  overflow: hidden;
+  padding-top: 4rem;
+}
+#about h2 {
+  font-size: 4rem;
+  color: #E1AD01;
+}
+#about .about_title_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#about .about_title_container h3 {
+  font-size: 2rem;
+  color: #ADAFF2;
+}
+#about .text_about {
+  display: grid;
+  grid-template-areas: "one . " " . two" "three . " " . four" "five . " " . six";
+  gap: 5rem;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 6rem;
+}
+#about .text_about .verse_one {
+  grid-area: one;
+}
+#about .text_about .verse_two {
+  grid-area: two;
+}
+#about .text_about .verse_three {
+  grid-area: three;
+}
+#about .text_about .verse_four {
+  grid-area: four;
+}
+#about .text_about .verse_five {
+  grid-area: five;
+}
+#about .text_about .verse_six {
+  grid-area: six;
+}
+#about .text_about .verse_card {
+  position: relative;
+  z-index: 2;
+}
+#about .text_about .verse_card::before {
+  position: absolute;
+  content: "";
+  top: -25%;
+  left: -5%;
+  width: 110%;
+  height: 150%;
+  background: linear-gradient(45deg, var(--primaryColor), var(--secondaryColor));
+  animation: blob 6s infinite;
+  z-index: -1;
+  border-radius: 20px;
+}
+#about .text_about span {
+  display: block;
+}
+
+@keyframes blob {
+  0% {
+    clip-path: path("M20,40 Q60,0 100,40 T180,40 Q220,100 180,140 T100,140 Q60,100 20,40 Z");
+  }
+  50% {
+    clip-path: path("M30,50 Q70,-10 110,50 T190,50 Q230,110 190,150 T110,150 Q70,110 30,50 Z");
+  }
+  100% {
+    clip-path: path("M20,40 Q60,0 100,40 T180,40 Q220,100 180,140 T100,140 Q60,100 20,40 Z");
+  }
+}
 #project {
   display: flex;
   flex-direction: column;

@@ -23,7 +23,6 @@
     }
 }
 
-
 #homeContainer {
     @include mixin.flex($justify: space-between);
     width: 1520px;
@@ -68,7 +67,6 @@
         position: absolute;
         top: 15%;
         left: 8%;
-
     }
 
     .home_grid {

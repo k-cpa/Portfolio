@@ -1,0 +1,89 @@
+@use "../abstract/variable" as var;
+@use "../abstract/mixin";
+
+#about {
+    @include mixin.flex (column, center, center);
+    width: 100vw;
+    overflow: hidden;
+    padding-top: 4rem;
+
+    h2 {
+        font-size: 4rem;
+        color: var.$principalColor;
+    }
+
+    .about_title_container {
+        @include mixin.flex (column, center, center);
+        text-align: center;
+
+        h3 {
+            font-size: 2rem;
+            color: var.$secondaryColor;
+        }
+    }
+
+    .text_about {
+        display: grid;
+        grid-template-areas: 
+            "one . "
+            " . two"
+            "three . "
+            " . four"
+            "five . "
+            " . six";
+        gap: 5rem;
+        font-size: 1.2rem;
+        text-align: center;
+        margin-top: 6rem;
+        
+        .verse_one {grid-area: one;}
+        .verse_two {grid-area: two;}
+        .verse_three {grid-area: three;}
+        .verse_four {grid-area: four;}
+        .verse_five {grid-area: five;}
+        .verse_six {grid-area: six;}
+
+        .verse_card {
+            position: relative;
+            z-index: 2;
+
+            &::before {
+                position: absolute;
+                content: "";
+                top: -25%;
+                left: -5%;
+                width: 110%;
+                height: 150%;
+                background: linear-gradient(45deg, var(--primaryColor), var(--secondaryColor));
+                // clip-path: path("M20,40 Q60,0 100,40 T180,40 Q220,100 180,140 T100,140 Q60,100 20,40 Z");
+                animation: blob 6s infinite;
+                z-index: -1;
+                border-radius: 20px;
+            }
+        }
+
+
+        span {
+            display: block;
+        }
+    }
+}
+
+
+@keyframes blob {
+    0% {
+        clip-path: path(
+            "M20,40 Q60,0 100,40 T180,40 Q220,100 180,140 T100,140 Q60,100 20,40 Z"
+        );
+    }
+    50% {
+        clip-path: path(
+            "M30,50 Q70,-10 110,50 T190,50 Q230,110 190,150 T110,150 Q70,110 30,50 Z"
+        );
+    }
+    100% {
+        clip-path: path(
+            "M20,40 Q60,0 100,40 T180,40 Q220,100 180,140 T100,140 Q60,100 20,40 Z"
+        );
+    }
+}
