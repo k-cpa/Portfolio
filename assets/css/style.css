@@ -107,7 +107,6 @@ header nav ul a:hover::before {
 }
 header nav ul a.active {
   color: #E1AD01;
-  border-bottom: 2px solid #F6D778;
 }
 header nav .burger_icon {
   display: none;
